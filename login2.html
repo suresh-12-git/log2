@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text">
+        <input type="password">
+        <input type="submit" value="login">
+    </form>
+   
+    <script>
+        let a1=[]
+        var btn1=document.forms;
+        btn1[0].addEventListener("submit",(e)=>{
+            e.preventDefault();
+            console.log(e)
+            var d1=localStorage.getItem('val')
+            var data=JSON.parse(d1)
+
+           for(i=0;i<data.length;i++){
+            if(data[i].user==e.target[0].value){
+                a1.push(data[i])
+            }
+           }
+           if(a1.length>0){
+            if(a1[0].user==e.target[0].value && a1[0].pass==e.target[1].value){
+                alert("login successfully")
+            }
+            else{
+                alert("invalid details")
+            }
+           }else{
+            alert("please register")
+           }
+        })
+    </script>
+</body>
+</html>

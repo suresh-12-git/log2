@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" >
+        <input type="text"  required>
+        <br><br>
+        <input type="email" required>
+        <br><br>
+        <input type="number">
+        <br><br>
+        <input type="password" >
+        <br><br>
+        <input type="submit" value="register">
+        <input type="button" value="login" id="log">
+
+    </form>
+
+    <script>
+        var arr=[]
+        var f1=document.forms;
+        f1[0].addEventListener("submit",(e)=>{
+            e.preventDefault();
+            console.log(e)
+
+            var obj={
+                user:e.target[0].value,
+                email:e.target[1].value,
+                number:e.target[2].value,
+                pass:e.target[3].value
+            }
+          arr.push(obj)
+          console.log(arr)
+          localStorage.setItem('val',JSON.stringify(arr))
+        })
+         var btn1=document.getElementById('log').addEventListener("click",()=>{
+            window.location.assign("./login2.html")
+         })
+        
+    </script>
+</body>
+</html>
